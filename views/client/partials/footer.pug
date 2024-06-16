@@ -1,2 +1,42 @@
-footer.footer
-   | Copyright 2024 TA
+footer.bg-dark.text-white.pt-4.pb-4
+  .container
+    .row
+      // Thông tin liên hệ
+      .col-md-4
+        h5 Liên hệ
+        ul.list-unstyled
+          li
+            i.fa.fa-map-marker
+            |  Địa chỉ: 123 Đường ABC, Quận XYZ, TP.HCM
+          li
+            i.fa.fa-phone
+            |  Điện thoại: +84 123 456 789
+          li
+            i.fa.fa-envelope
+            |  Email: contact@example.com
+
+      // Liên kết nhanh
+      .col-md-4
+        h5 Liên kết nhanh
+        ul.list-unstyled
+          li
+            a.text-white(href='/') Trang chủ
+          li
+            a.text-white(href='/products') Sản phẩm
+
+      // Mạng xã hội
+      .col-md-4
+        h5 Theo dõi chúng tôi
+        ul.list-unstyled.d-flex
+          li.mr-3
+            a.text-white(href='https://www.facebook.com') Facebook
+          li.mr-3
+            a.text-white(href='https://www.twitter.com') Twitter 
+          li.mr-3
+            a.text-white(href='https://www.instagram.com') Instagram
+          li
+            a.text-white(href='https://www.linkedin.com') Linkedin
+
+    // Bản quyền
+    .text-center.mt-3
+      p.mb-0 &copy; 2024 Example Company. Bảo lưu mọi quyền.

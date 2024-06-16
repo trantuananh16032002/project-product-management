@@ -1,0 +1,50 @@
+extends ../../layouts/default.pug
+
+block main
+  .container.my-3
+        if(order)
+            h3.mb-3 Chi tiết đơn hàng #{order._id}
+            .row 
+                .col-12 
+                    h4(class="mb-2") Thông tin khách hàng
+                    table(class="table table-bordered")
+                        tbody 
+                            tr 
+                                td Họ tên 
+                                td 
+                                    b #{order.userInfo.fullName}
+                            tr 
+                                td Số điện thoại 
+                                td 
+                                    b #{order.userInfo.phone}
+                            tr 
+                                td Địa chỉ
+                                td 
+                                    b #{order.userInfo.address}
+            .row
+                .col-12 
+                    h4(class="mb-2") Thông tin đơn hàng
+                    table(class="table table-bordered")
+                        thead 
+                            tr 
+                                th STT 
+                                th Ảnh 
+                                th Tên 
+                                th Giá 
+                                th Số lượng 
+                                th Tổng tiền 
+                        tbody 
+                            if(order.products.length > 0)
+                                each item, index in order.products
+                                    tr 
+                                        td 
+                                          a(
+                                            href=`${prefixAdmin}/products/detail/${item.productInfo._id}`,
+                                            class="btn btn-link"
+                                          ) #{index + 1}
+                                        td 
+                                            img(src=item.productInfo.thumbnail, alt=item.productInfo.title width="80px") 
+                                        td #{item.productInfo.title} 
+                                        td #{formatCurrency(item.priceNew)}
+                                        td #{item.quantity}   
+                                        td #{formatCurrency(item.totalPrice)}

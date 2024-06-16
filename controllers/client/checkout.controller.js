@@ -50,6 +50,17 @@ module.exports.order = async (req, res) => {
     const productInfo = await Product.findOne({
       _id: product.product_id,
     });
+
+    if (productInfo && productInfo.stock < product.quantity) {
+      cart.products = cart.products.filter(
+        (item) => item.product_id != product.product_id
+      );
+      await cart.save();
+      req.flash("error", `Sản phẩm ${productInfo.title} không đủ số lượng`);
+      res.redirect("back");
+      return;
+    }
+
     objProduct.price = productInfo.price;
     objProduct.discountPercentage = productInfo.discountPercentage;
 
