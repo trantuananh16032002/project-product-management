@@ -42,6 +42,21 @@ module.exports.registerPost = async (req, res) => {
   const user = new User(req.body);
   await user.save();
   // console.log(user)
+
+  const userCart = await Cart.findOne({
+      user_id: user._id
+  })
+
+  if (userCart) {
+      res.cookie("cartId", userCart._id)
+  } else {
+      await Cart.updateOne({
+          _id: req.cookies.cartId
+      }, {
+          user_id: user._id
+      });
+  }
+
   res.cookie("tokenUser", user.tokenUser);
   res.redirect("/");
 };
@@ -76,6 +91,21 @@ module.exports.loginPost = async (req, res) => {
     res.redirect("back");
     return;
   }
+
+  const userCart = await Cart.findOne({
+      user_id: user._id
+  })
+
+  if (userCart) {
+      res.cookie("cartId", userCart._id)
+  } else {
+      await Cart.updateOne({
+          _id: req.cookies.cartId
+      }, {
+          user_id: user._id
+      });
+  }
+
   res.cookie("tokenUser", user.tokenUser);
   //lưu user_id vào modelCart
   await Cart.updateOne({_id: req.cookies.cartId}, {
@@ -86,6 +116,7 @@ module.exports.loginPost = async (req, res) => {
 };
 //[GET] user/logout
 module.exports.logout = async (req, res) => {
+  res.clearCookie("cartId");
   res.clearCookie("tokenUser");
   res.redirect("/");
 };

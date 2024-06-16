@@ -6,7 +6,8 @@ block main
     .container.py-3
         .row
             .col-3
-                ul.nav.flex-column
+                ul.nav.flex-column.border-right.px-1.py-1
+                    h3 Danh mục sản phẩm
                     each item in layoutProductsCategory 
                         li.nav-item
                             a.nav-link.active(href=`${pathProduct}/${item.slug}`) #{item.title}

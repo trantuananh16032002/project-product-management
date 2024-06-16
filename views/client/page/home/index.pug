@@ -28,9 +28,13 @@ block main
                 .col-12 
                     +box-head("Danh sách sản phẩm nổi bật")
             +product-grid(productsFeatured)
-    .section-products-featured.my-5
+    .section-products-featured.mt-5
         .container.my-3
             .row 
                 .col-12 
                     +box-head("Danh sách sản phẩm mới nhất")
             +product-grid(productsNew)
+    .container
+        .row.justify-content-center
+            .col-12.text-center
+                a.btn.btn-primary(href="/products") Xem thêm

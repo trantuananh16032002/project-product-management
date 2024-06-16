@@ -10,8 +10,9 @@ html
 
         - var formatCurrency = (value) => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value);
 
-        .bg-light
-            block main 
+        .main-container.pb-5
+            block main
+            br
 
         include ../partials/footer.pug
 

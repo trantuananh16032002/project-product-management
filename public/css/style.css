@@ -157,3 +157,75 @@
 .form-search-container button i {
     line-height: inherit;
 }
+
+.header-container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#progress-bar {
+    display: table;
+    width: 100%;
+    margin: 0;
+    padding: 15px 15px 0;
+    table-layout: fixed;
+    counter-reset: step; }
+    #progress-bar li {
+      list-style-type: none;
+      display: table-cell;
+      width: 30%;
+      font-size: 16px;
+      position: relative;
+      text-align: center; }
+      #progress-bar li:before {
+        width: 50px;
+        height: 50px;
+        color: #212121;
+        content: counter(step);
+        counter-increment: step;
+        line-height: 50px;
+        font-size: 18px;
+        border: 1px solid #efefef;
+        display: block;
+        text-align: center;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        background-color: #ffffff; }
+      #progress-bar li:after {
+        width: 100%;
+        height: 10px;
+        content: '';
+        position: absolute;
+        background-color: #e5e5e5;
+        top: 25px;
+        left: -50%;
+        z-index: -1; }
+      #progress-bar li:first-child:after {
+        content: none; }
+      #progress-bar li.step-done {
+        color: #007bff; }
+        #progress-bar li.step-done:before {
+          border-color: #007bff;
+          background-color: #007bff;
+          color: #fff;
+          content: "✔";
+          font-family: "FontAwesome"; }
+        #progress-bar li.step-done + li:after {
+          background-color: #007bff; }
+      #progress-bar li.step-active {
+        color: #007bff; }
+        #progress-bar li.step-active:before {
+          border-color: #007bff;
+          color: #007bff;
+          font-weight: 700; }
+
+.footer {
+    /* position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%; */
+}
+
+.main-container {
+    /* display: flex; */
+}
