@@ -17,6 +17,10 @@ const orderSchema = new mongoose.Schema(
         quantity: Number,
       },
     ],
+    order_status: {
+      type: String,
+      default: "Chờ xác nhận",
+    },
   },
   {
     timestamps: true,

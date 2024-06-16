@@ -52,9 +52,9 @@ block main
                                         td 
                                             img(src=item.productInfo.thumbnail, alt=item.productInfo.title width="80px") 
                                         td #{item.productInfo.title} 
-                                        td #{item.priceNew}$ 
+                                        td #{formatCurrency(item.priceNew)}
                                         td #{item.quantity}   
-                                        td #{item.totalPrice}$   
+                                        td #{formatCurrency(item.totalPrice)}
 
 
 

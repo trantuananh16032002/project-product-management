@@ -35,9 +35,9 @@ block main
                                     td 
                                         img(src=item.productInfo.thumbnail, alt="sản phẩm 1", width="80px")
                                     td  #{item.productInfo.title}
-                                    td  #{item.productInfo.priceNew}$
+                                    td  #{formatCurrency(item.productInfo.priceNew)}
                                     td  #{item.quantity}
-                                    td  #{item.totalPrice}$
+                                    td  #{formatCurrency(item.totalPrice)}
                         else
                             tr 
                                 td(
@@ -45,7 +45,7 @@ block main
                                     class="text-center"
                                 ) Giỏ hàng trống
                 if(cartDetail.products.length > 0)
-                    h3(class="text-right") Tổng đơn hàng: #{cartDetail.totalPrice}$
+                    h3(class="text-right") Tổng đơn hàng: #{formatCurrency(cartDetail.totalPrice)}
         if(cartDetail.products.length > 0)
             .row 
                 .col-12 
