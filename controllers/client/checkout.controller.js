@@ -75,13 +75,26 @@ module.exports.order = async (req, res) => {
   };
   const order = new Order(objectOrder)
   await order.save();
+
   //lưu thành công thì cập nhật lại giỏ hàng thành rỗng
   await Cart.updateOne({
     _id:cartId
   },{
     products: []
+  })
+
+  // Decrease stock
+  for (const product of products) {
+    await Product.updateOne(
+      {
+        _id: product.product_id,
+      },
+      {
+        $inc: { stock: -product.quantity },
+      }
+    );
   }
-)
+
   res.redirect(`/checkout/success/${order.id}`);
 };
 // [GET] /checkout/success/id
