@@ -25,7 +25,7 @@
     padding: 10px;
 }
 .product-item{
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 .product-item .inner-image{
     position: relative;
@@ -115,4 +115,45 @@
     font-weight: 600;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.strike-through {
+    text-decoration: line-through;
+    color: #9f9f9f;
+}
+
+.inner-discount {
+    color: red;
+}
+
+.form-search-container {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgb(221, 221, 227);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.form-search-container input {
+    border: none;
+}
+
+.form-search-container input:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.form-search-container button {
+    background-color: transparent;
+    color: rgb(128, 128, 137);
+    display: flex;
+    border-radius: 0px;
+    border-bottom: none;
+    border-right: none;
+    border-top: none;
+    border-left: 2px solid rgb(221, 221, 227);
+}
+
+.form-search-container button i {
+    line-height: inherit;
 }

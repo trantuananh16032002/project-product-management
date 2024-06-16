@@ -5,6 +5,23 @@ include ../../mixins/product-layout.pug
 block main
     
     //- div #{productsFeatured}
+    .container
+        .row
+            .col-12
+                #carouselExampleControls.carousel.slide(data-ride='carousel')
+                    .carousel-inner.rounded-lg
+                        .carousel-item.active
+                            img.d-block.w-100(src='/images/banners/banner_01.png', alt='...')
+                        .carousel-item
+                            img.d-block.w-100(src='/images/banners/banner_02.png', alt='...')
+                        .carousel-item
+                            img.d-block.w-100(src='/images/banners/banner_03.png', alt='...')
+                    a.carousel-control-prev(href='#carouselExampleControls', role='button', data-slide='prev')
+                        span.carousel-control-prev-icon(aria-hidden='true')
+                        span.sr-only Previous
+                    a.carousel-control-next(href='#carouselExampleControls', role='button', data-slide='next')
+                        span.carousel-control-next-icon(aria-hidden='true')
+                        span.sr-only Next
     .section-products-featured.my-5
         .container.my-3
             .row 

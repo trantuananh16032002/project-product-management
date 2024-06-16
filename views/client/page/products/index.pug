@@ -3,9 +3,26 @@ include ../../mixins/box-head.pug
 include ../../mixins/product-layout.pug
 
 block main
-    .container.my-3
-        .row 
-            .col-12 
-                +box-head(pageTitle)
-        +product-grid(products)
+    .container.py-3
+        .row
+            .col-3
+                ul.nav.flex-column
+                    each item in layoutProductsCategory 
+                        li.nav-item
+                            a.nav-link.active(href=`${pathProduct}/${item.slug}`) #{item.title}
+                        if item.children && item.children.length > 0
+                            each _item in item.children
+                                li.nav-item
+                                    a.nav-link(href=`${pathProduct}/${_item.slug}`) #{_item.title}
+                        //- li.nav-item
+                        //-     a.nav-link(href='#') Link
+                        //- li.nav-item
+                        //-     a.nav-link(href='#') Link
+                        //- li.nav-item
+                        //-     a.nav-link.disabled(href='#', tabindex='-1', aria-disabled='true') Disabled
+            .col-9
+                .row 
+                    .col-12 
+                        +box-head(pageTitle)
+                +product-grid(products)
             

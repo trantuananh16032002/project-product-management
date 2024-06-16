@@ -7,7 +7,7 @@ header.header
                 .inner-logo
                     a(href="/") 
                         img(src="/images/logo.svg", alt="logo")
-            .col-5 
+            .form-search-container.col-5 
                 form(
                     action ="/search"
                     method="GET"
@@ -22,8 +22,10 @@ header.header
                         )
                         button(
                             type="submit"
-                            class="btn btn-primary"
-                        ) Tìm
+                            class="btn btn-outline-primary"
+                        )
+                            i.fas.fa-search
+                            | &nbsp;&nbsp;Tìm
             .col-4 
                 //- div #{layoutProductsCategory}
                 .inner-menu 
