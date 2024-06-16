@@ -48,5 +48,5 @@ route(app); // Gọi hàm định tuyến cho client
 
 // Lắng nghe cổng
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Example app listening on port ${port}`); //in số cổng
 });

@@ -37,7 +37,7 @@ module.exports.registerPost = async (req, res) => {
     }
     return token;
   }
-  req.body.token = await generateUniqueToken();
+  req.body.tokenUser = await generateUniqueToken();
   req.body.password = md5(req.body.password);
   const user = new User(req.body);
   await user.save();

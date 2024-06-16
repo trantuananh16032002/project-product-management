@@ -14,9 +14,17 @@
     align-items: center;
     justify-content: flex-end;
     flex-wrap: wrap;
+    
 }
 .header .inner-menu > ul > li {
     margin-left: 20px;
+    padding: 5px ;
+    /* border: 1px solid #333; */
+    border-radius: 10px;
+    /* background-color: #E0FFFF; */
+}
+.header .inner-menu > ul > li a{
+    color: #333;
 }
 .footer{
     background: #333;
@@ -228,4 +236,7 @@
 
 .main-container {
     /* display: flex; */
+}
+a{
+    color: #212121;
 }
